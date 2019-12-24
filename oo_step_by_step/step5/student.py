@@ -1,9 +1,9 @@
 from oo_step_by_step.step5.klass import Klass
-from oo_step_by_step.step5.observer import Subject
+from oo_step_by_step.step5.observer import Publisher
 from oo_step_by_step.step5.person import Person
 
 
-class Student(Person, Subject):
+class Student(Person, Publisher):
 
     def __init__(self, id, name, age, klass) -> None:
         super().__init__(id, name, age)
@@ -34,10 +34,10 @@ class Student(Person, Subject):
     def resign_to(self, klass):
         self.klass = klass
 
-    def attach(self, observer):
+    def register(self, observer):
         self.__observers.append(observer)
 
-    def detach(self, observber):
+    def unregister(self, observber):
         self.__observers.remove(observber)
 
     def notify(self):

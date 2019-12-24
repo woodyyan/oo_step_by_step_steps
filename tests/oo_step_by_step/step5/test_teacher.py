@@ -11,7 +11,7 @@ class TestTeacher(unittest.TestCase):
         student = Student("1", "Tom", 18, Klass(1))
         klass = Klass(2)
         teacher = Teacher("1", "Jerry", 18, [Klass(2)])
-        student.attach(teacher)
+        student.register(teacher)
         klass.append_member(student)
         student.notify()
 
