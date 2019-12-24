@@ -1,4 +1,4 @@
-from oo_step_by_step.step4.person import Person
+from oo_step_by_step.step5.person import Person
 
 
 class Worker(Person):

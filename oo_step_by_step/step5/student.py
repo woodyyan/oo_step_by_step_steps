@@ -1,5 +1,6 @@
-from oo_step_by_step.step4.klass import Klass
-from oo_step_by_step.step4.person import Person
+from oo_step_by_step.step5.klass import Klass
+from oo_step_by_step.step5.observer import Subject
+from oo_step_by_step.step5.person import Person
 
 
 class Student(Person):
@@ -11,7 +12,7 @@ class Student(Person):
     def introduce(self):
         result = self.__basic_introduce()
         if self.klass.has_leader(self):
-            result += " I am Leader of {self.klass}.".format(self = self)
+            result += " I am Leader of {self.klass}.".format(self=self)
         else:
             result += " I am at {self.klass}.".format(self=self)
         return result
@@ -23,7 +24,7 @@ class Student(Person):
     def with_name(self, handler) -> str:
         return handler(self.name)
 
-    def in_klass(self, klass:Klass) -> bool:
+    def in_klass(self, klass: Klass) -> bool:
         return self.klass.eqauls(klass)
 
     def equals(self, other):
@@ -31,4 +32,3 @@ class Student(Person):
 
     def resign_to(self, klass):
         self.klass = klass
-
