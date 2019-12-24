@@ -1,7 +1,7 @@
-from oo_step_by_step.step5.observer import Publisher, StudentInfo
+from oo_step_by_step.step5.observer import KlassPublisher, KlassInfo
 
 
-class Klass(Publisher):
+class Klass(KlassPublisher):
     def __init__(self, klass_number) -> None:
         self.klass_number = klass_number
         self.leader = None
@@ -18,7 +18,7 @@ class Klass(Publisher):
     def assign_leader(self, leader):
         if leader.in_klass(self):
             self.leader = leader
-            self.notify(StudentInfo(leader.with_name(lambda name: name), self.klass_number, True))
+            self.notify(KlassInfo(leader.with_name(lambda name: name), self.klass_number, True))
         else:
             print("It's not one of us.")
 
@@ -27,7 +27,7 @@ class Klass(Publisher):
 
     def append_member(self, student):
         student.resign_to(self)
-        self.notify(StudentInfo(student.with_name(lambda name: name), self.klass_number, False))
+        self.notify(KlassInfo(student.with_name(lambda name: name), self.klass_number, False))
 
     def register(self, observer):
         self.__observers.append(observer)
@@ -35,6 +35,6 @@ class Klass(Publisher):
     def unregister(self, observer):
         self.__observers.remove(observer)
 
-    def notify(self, student_info):
+    def notify(self, klass_info):
         for observer in self.__observers:
-            observer.update(student_info)
+            observer.update(klass_info)

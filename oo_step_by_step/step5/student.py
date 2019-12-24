@@ -1,5 +1,4 @@
 from oo_step_by_step.step5.klass import Klass
-from oo_step_by_step.step5.observer import Publisher
 from oo_step_by_step.step5.person import Person
 
 

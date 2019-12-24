@@ -1,20 +1,20 @@
-from oo_step_by_step.step5.observer import Observer
+from oo_step_by_step.step5.observer import KlassObserver, KlassInfo
 from oo_step_by_step.step5.person import Person
 from oo_step_by_step.step5.student import Student
 
 
-class Teacher(Person, Observer):
+class Teacher(Person, KlassObserver):
 
     def __init__(self, id, name, age, klasses) -> None:
         super().__init__(id, name, age)
         self.klasses = klasses
 
-    def update(self, student_info):
-        if student_info.is_leader:
+    def update(self, klass_info: KlassInfo):
+        if klass_info.is_leader:
             print('I am %s. I know %s become Leader of Class %s.' % (
-            self.name, student_info.name, student_info.klass_number))
+                self.name, klass_info.name, klass_info.klass_number))
         else:
-            print('I am %s. I know %s has joined Class %s.' % (self.name, student_info.name, student_info.klass_number))
+            print('I am %s. I know %s has joined Class %s.' % (self.name, klass_info.name, klass_info.klass_number))
 
     def introduce(self) -> str:
         result = self.__basic_introduce()

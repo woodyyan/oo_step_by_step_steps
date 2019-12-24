@@ -1,4 +1,4 @@
-class Publisher:
+class KlassPublisher:
     def register(self, observber):
         pass
 
@@ -6,13 +6,13 @@ class Publisher:
         pass
 
 
-class StudentInfo:
+class KlassInfo:
     def __init__(self, name, klass_number, is_leader):
         self.name = name
         self.klass_number = klass_number
         self.is_leader = is_leader
 
 
-class Observer:
-    def update(self, student_info: StudentInfo):
+class KlassObserver:
+    def update(self, student_info: KlassInfo):
         pass
