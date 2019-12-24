@@ -3,11 +3,12 @@ from oo_step_by_step.step5.observer import Subject
 from oo_step_by_step.step5.person import Person
 
 
-class Student(Person):
+class Student(Person, Subject):
 
     def __init__(self, id, name, age, klass) -> None:
         super().__init__(id, name, age)
         self.klass = klass
+        self.__observers = []
 
     def introduce(self):
         result = self.__basic_introduce()
@@ -32,3 +33,13 @@ class Student(Person):
 
     def resign_to(self, klass):
         self.klass = klass
+
+    def attach(self, observer):
+        self.__observers.append(observer)
+
+    def detach(self, observber):
+        self.__observers.remove(observber)
+
+    def notify(self):
+        for observer in self.__observers:
+            observer.update(self)

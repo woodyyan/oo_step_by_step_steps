@@ -10,7 +10,7 @@ class Teacher(Person, Observer):
         self.klasses = klasses
 
     def update(self, subject):
-        print('I am %s. I know %s has joined Class %s.' % (self.name, self.name, '1'))
+        print('I am %s. I know %s has joined Class %s.' % (self.name, subject.name, subject.klass.klass_number))
 
     def introduce(self) -> str:
         result = self.__basic_introduce()
