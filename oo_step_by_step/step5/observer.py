@@ -5,9 +5,6 @@ class Publisher:
     def unregister(self, observber):
         pass
 
-    def notify(self):
-        pass
-
 
 class StudentInfo:
     def __init__(self, name, klass_number):

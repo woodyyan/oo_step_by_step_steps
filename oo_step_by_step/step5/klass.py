@@ -1,7 +1,11 @@
-class Klass:
+from oo_step_by_step.step5.observer import Publisher, StudentInfo
+
+
+class Klass(Publisher):
     def __init__(self, klass_number) -> None:
         self.klass_number = klass_number
         self.leader = None
+        self.__observers = []
 
     def __str__(self) -> str:
         if self.klass_number <= 0:
@@ -22,3 +26,14 @@ class Klass:
 
     def append_member(self, student):
         student.resign_to(self)
+        self.notify(StudentInfo(student.with_name(lambda name: name), self.klass_number))
+
+    def register(self, observer):
+        self.__observers.append(observer)
+
+    def unregister(self, observer):
+        self.__observers.remove(observer)
+
+    def notify(self, student_info):
+        for observer in self.__observers:
+            observer.update(student_info)

@@ -9,8 +9,8 @@ class Teacher(Person, Observer):
         super().__init__(id, name, age)
         self.klasses = klasses
 
-    def update(self, subject):
-        print('I am %s. I know %s has joined Class %s.' % (self.name, subject.name, subject.klass.klass_number))
+    def update(self, student_info):
+        print('I am %s. I know %s has joined Class %s.' % (self.name, student_info.name, student_info.klass_number))
 
     def introduce(self) -> str:
         result = self.__basic_introduce()
