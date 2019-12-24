@@ -30,3 +30,13 @@ class TestTeacher(unittest.TestCase):
         klass.register(teacher)
         klass.append_member(student)
         self.assertEqual(str(sys.stdout.getvalue()), 'I am Jerry. I know Tom has joined Class 2.\n')
+
+    def test_teacher_say_student_became_leader(self):
+        stub_stdout(self)
+        klass = Klass(1)
+        student = Student("1", "Tom", 18, klass)
+        teacher = Teacher("1", "Jerry", 18, [klass])
+        klass.register(teacher)
+        klass.assign_leader(student)
+        self.assertEqual(str(sys.stdout.getvalue()), 'I am Jerry. I know Tom become Leader of Class 1.\n')
+

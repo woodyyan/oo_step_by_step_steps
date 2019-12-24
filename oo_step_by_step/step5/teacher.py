@@ -10,7 +10,11 @@ class Teacher(Person, Observer):
         self.klasses = klasses
 
     def update(self, student_info):
-        print('I am %s. I know %s has joined Class %s.' % (self.name, student_info.name, student_info.klass_number))
+        if student_info.is_leader:
+            print('I am %s. I know %s become Leader of Class %s.' % (
+            self.name, student_info.name, student_info.klass_number))
+        else:
+            print('I am %s. I know %s has joined Class %s.' % (self.name, student_info.name, student_info.klass_number))
 
     def introduce(self) -> str:
         result = self.__basic_introduce()

@@ -18,6 +18,7 @@ class Klass(Publisher):
     def assign_leader(self, leader):
         if leader.in_klass(self):
             self.leader = leader
+            self.notify(StudentInfo(leader.with_name(lambda name: name), self.klass_number, True))
         else:
             print("It's not one of us.")
 
@@ -26,7 +27,7 @@ class Klass(Publisher):
 
     def append_member(self, student):
         student.resign_to(self)
-        self.notify(StudentInfo(student.with_name(lambda name: name), self.klass_number))
+        self.notify(StudentInfo(student.with_name(lambda name: name), self.klass_number, False))
 
     def register(self, observer):
         self.__observers.append(observer)

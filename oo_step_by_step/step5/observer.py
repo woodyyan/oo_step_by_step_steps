@@ -7,9 +7,10 @@ class Publisher:
 
 
 class StudentInfo:
-    def __init__(self, name, klass_number):
+    def __init__(self, name, klass_number, is_leader):
         self.name = name
         self.klass_number = klass_number
+        self.is_leader = is_leader
 
 
 class Observer:
