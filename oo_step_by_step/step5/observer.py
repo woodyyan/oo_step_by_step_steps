@@ -1,8 +1,8 @@
 class KlassPublisher:
-    def register(self, observber):
+    def register(self, observer):
         pass
 
-    def unregister(self, observber):
+    def unregister(self, observer):
         pass
 
 
